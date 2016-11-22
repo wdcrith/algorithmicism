@@ -1,0 +1,33 @@
+task1:
+    cores_required: 2
+    execution_time: 100
+task2:
+    cores_required: 1
+    execution_time: 200
+    parent_tasks: task1
+task3:
+    cores_required: 4
+    execution_time: 50
+    parent_tasks: "task1, task2"
+task4:
+    cores_required: 2
+    execution_time: 300
+    parent_tasks: task2
+task5:
+    cores_required: 2
+    execution_time: 100
+    parent_tasks: task2
+task6:
+    cores_required: 2
+    execution_time: 50
+    parent_tasks: "task2, task7"
+task7:
+    cores_required: 2
+    execution_time: 50
+    parent_tasks: task6
+task8:
+    cores_required: 6 
+    execution_time: 200
+task9:
+    cores_required: 6
+    execution_time: 200
