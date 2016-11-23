@@ -20,7 +20,7 @@ task5:
 task6:
     cores_required: 2
     execution_time: 50
-    parent_tasks: "task2, task7"
+    parent_tasks: "task2"
 task7:
     cores_required: 2
     execution_time: 50
