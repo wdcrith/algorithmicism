@@ -93,17 +93,18 @@ class TaskScheduler:
                     task_completed = True
             return task_completed
 
+    def get_priority_metric(self, name):
+        """ Our priority metric is the full execution time of a task
+         (execution time of the task plus all ancestor tasks execution times)
+          multiplied by cores required so that long tasks get priority
+         and core heavy tasks will get an extra advantage """
+        return (self.tasks[name].cores_required *
+            self.tasks[name].get_full_execution_time())
 
     def prioritize_tasks(self):
-        """ Prioritize tasks based on execution time and core count """
-        def get_priority_metric(name):
-            # Our priority metric is the full execution time of a task
-            # (execution time of the task plus all ancestor tasks execution times
-            # Then we multiply that by cores required so that long tasks get priority
-            # and core heavy tasks will get an extra advantage
-            pm = self.tasks[name].cores_required * self.tasks[name].get_full_execution_time()
-            return pm
-        prioritized_tasks = sorted(self.tasks, key=get_priority_metric, reverse=True)
+        """ Prioritize tasks based on priority metric """
+        prioritized_tasks =\
+            sorted(self.tasks, key=self.get_priority_metric, reverse=True)
         return prioritized_tasks
 
     def find_free_compute_resource(self, task):
