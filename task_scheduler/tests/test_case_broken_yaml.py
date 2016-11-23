@@ -1,10 +1,11 @@
 import os
 import sys
 
-sys.path.insert(0, '..')
+filepath = os.path.join(os.path.dirname(os.path.realpath(__file__)))
+sys.path.insert(0, os.path.join(filepath, '..'))
 import task_scheduler
 
 ts = task_scheduler.TaskScheduler()
-ts.load_yaml(os.path.join('yaml', 'resources_broken_yaml.yaml'),
-             os.path.join('yaml', 'tasks1.yaml')) 
+ts.load_yaml(os.path.join(filepath, 'yaml', 'resources_broken_yaml.yaml'),
+             os.path.join(filepath, 'yaml', 'tasks1.yaml')) 
 ts.find_schedule()

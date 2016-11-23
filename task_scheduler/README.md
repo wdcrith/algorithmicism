@@ -1,4 +1,21 @@
-# TaskScheduler project
+# To Run
+
+Python3 is required to run (tested under Python 3.4.3 on Ubuntu 14.04.4 64bit)
+
+To print out scripts help info
+python3 task_scheduler.py -h
+
+A basic usage to run would be
+python3 task_scheduler.py <path_to_task_yaml> <path_to_resource_yaml>
+
+There are also a variety of test helper scripts (and unit tests) under tests/
+for example you could run the original test case by doing:
+python3 tests/test_case_1.py
+
+unit test are run as
+python3 tests/test_task_scheduler.py
+
+# TaskScheduler Project Brief
 
 So, after having put some time into this exercise I figure I should give a brief on what I
 learned, decisions I made and things that need to be done going forward (hypothetically).

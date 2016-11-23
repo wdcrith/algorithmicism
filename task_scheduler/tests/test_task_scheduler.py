@@ -1,4 +1,9 @@
+import os
+import sys
 import unittest
+
+filepath = os.path.join(os.path.dirname(os.path.realpath(__file__)))
+sys.path.insert(0, os.path.join(filepath, '..'))
 import task_scheduler
 
 class TestTaskScheduler(unittest.TestCase):
