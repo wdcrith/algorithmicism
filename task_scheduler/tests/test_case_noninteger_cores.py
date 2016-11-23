@@ -6,6 +6,6 @@ sys.path.insert(0, os.path.join(filepath, '..'))
 import task_scheduler
 
 ts = task_scheduler.TaskScheduler()
-ts.load_yaml(os.path.join(filepath, 'yaml', 'resources_noninterger_cores.yaml'),
-             os.path.join(filepath, 'yaml', 'tasks1.yaml')) 
+ts.load_yaml(os.path.join(filepath, 'yaml_files', 'resources_noninterger_cores.yaml'),
+             os.path.join(filepath, 'yaml_files', 'tasks1.yaml')) 
 ts.find_schedule()

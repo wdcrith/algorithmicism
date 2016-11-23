@@ -1,4 +1,7 @@
+import os
 import sys
+
+filepath = os.path.join(os.path.dirname(os.path.realpath(__file__)))
 
 def check_python3():
     if sys.version_info < (3, 0):
@@ -121,7 +124,7 @@ class TaskScheduler:
         try:
             import yaml
         except ImportError:
-            sys.path.insert(0, 'pyyaml')
+            sys.path.insert(0, os.path.join(filepath, 'pyyaml'))
             import yaml
 
         # Try and load yaml files in separate try blocks so we can error our
